@@ -1,0 +1,9 @@
+[user]
+	name = Markuss9
+	email = player1.markuss@gmail.com
+
+[core]
+	editor = nvim
+
+[init]
+	defaultBranch = main
