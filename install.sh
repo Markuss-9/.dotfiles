@@ -45,21 +45,11 @@ for file in "${FILES[@]}"; do
 done
 
 # Link .config files
-# echo "Linking .config files..."
-# mkdir -p "$HOME/.config"
-#
-# for config in "$DOTFILES_DIR/.config/"*; do
-#     name=$(basename "$config")
-#     dest="$HOME/.config/$name"
-#
-#     if [ -e "$dest" ] || [ -L "$dest" ]; then
-#         echo "Backing up $dest to $BACKUP_DIR"
-#         mv "$dest" "$BACKUP_DIR/"
-#     fi
-#
-#     echo "Linking $config -> $dest"
-#     ln -s "$config" "$dest"
-# done
+echo "Linking .config files..."
+mkdir -p "$HOME/.config"
+
+echo "Linking nvim config files"
+ln -s "$DOTFILES_DIR/.config/nvim" "$HOME/.config/nvim"
 
 echo "Changing default shell to Zsh..."
 if [ "$SHELL" != "$(which zsh)" ]; then
