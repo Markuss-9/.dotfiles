@@ -82,11 +82,13 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='nvim'
+# fi
+
+export EDITOR='nvim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
@@ -104,6 +106,8 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias ..="cd .."
+alias vim="nvim"
+alias tmux-sessionizer="~/.local/bin/tmux-sessionizer/tmux-sessionizer"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -112,3 +116,6 @@ export NVM_DIR="$HOME/.nvm"
 if [ -z "$SSH_AUTH_SOCK" ]; then
   eval "$(ssh-agent -s)"
 fi
+
+
+export PATH="$HOME/.dotfiles/scripts:$PATH"
