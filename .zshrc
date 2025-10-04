@@ -119,3 +119,12 @@ fi
 
 
 export PATH="$HOME/.dotfiles/scripts:$PATH"
+
+export PATH="$PATH:$(go env GOPATH)/bin"
+
+# bun completions
+[ -s "/home/markuss/.bun/_bun" ] && source "/home/markuss/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
