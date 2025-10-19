@@ -48,9 +48,6 @@ done
 echo "Linking .config files..."
 mkdir -p "$HOME/.config"
 
-echo "Linking nvim config files"
-ln -s "$DOTFILES_DIR/.config/nvim" "$HOME/.config/nvim"
-
 echo "Changing default shell to Zsh..."
 if [ "$SHELL" != "$(which zsh)" ]; then
     chsh -s "$(which zsh)"
