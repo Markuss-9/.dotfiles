@@ -2,3 +2,7 @@
 	path = nvim/.config/nvim
 	url = git@github.com:Markuss-9/kickstart.nvim.git
 	branch = master
+[submodule "tmux-sessionizer/.local/bin/tmux-sessionizer"]
+	path = tmux-sessionizer/.local/bin/tmux-sessionizer
+	url = git@github.com:Markuss-9/tmux-sessionizer.git
+  branch = master
