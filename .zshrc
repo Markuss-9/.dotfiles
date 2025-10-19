@@ -107,7 +107,7 @@ export EDITOR='nvim'
 
 alias ..="cd .."
 alias vim="nvim"
-alias tmux-sessionizer="~/.local/bin/tmux-sessionizer/tmux-sessionizer"
+alias tmux-sessionizer="~/.local/share/tmux-sessionizer/tmux-sessionizer"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
