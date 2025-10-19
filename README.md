@@ -3,6 +3,21 @@
 Using stow to automatically install configuration packages, it doesnt install programs but it only creates symlinks of the configuration files.
 Naming convention: `<package name>/<directory>` for example `nvim/.config/nvim` because nvim is inside `.config/nvim`
 
+## Installation
+
+The current repository has git submodules, remember to clone/update them.
+
+You can check the status using
+
+```sh
+git submodule status
+```
+
+For updating
+
+```sh
+git submodule update --init --recursive
+```
 
 
 ## Hyprland
