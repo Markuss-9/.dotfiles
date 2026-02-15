@@ -9,10 +9,11 @@ return {
     local mark = harpoon:list()
     local ui = harpoon.ui
 
-    vim.keymap.set('n', '<leader>a', function()
+    vim.keymap.set('n', '<leader>ha', function()
       harpoon:list():add()
     end, { desc = 'Add current file to Harpoon' })
-    vim.keymap.set('n', '<leader>e', function()
+
+    vim.keymap.set('n', '<leader>ho', function()
       harpoon.ui:toggle_quick_menu(harpoon:list())
     end, { desc = 'Toggle Harpoon quick menu' })
 
@@ -43,18 +44,12 @@ return {
       harpoon:list():next()
     end)
 
-    vim.keymap.set('n', '<leader>fha', function()
-      mark:add()
-    end, { desc = 'Add File' })
-    vim.keymap.set('n', '<leader>fhq', function()
-      ui:toggle_quick_menu(mark)
-    end, { desc = 'Open Quick Menu' })
 
-    for i = 1, 9 do
-      vim.keymap.set('n', '<leader>fh' .. i, function()
-        mark:select(i)
-      end, { desc = 'File ' .. i })
-    end
+    -- for i = 1, 9 do
+    --   vim.keymap.set('n', '<leader>fh' .. i, function()
+    --     mark:select(i)
+    --   end, { desc = 'File ' .. i })
+    -- end
 
     vim.keymap.set('n', '<leader>fhr', function()
       local buf_name = vim.fn.fnamemodify(vim.fn.expand '%:p', ':~:.')
@@ -75,7 +70,7 @@ return {
       end
     end, { desc = 'Remove Current File' })
 
-    vim.keymap.set('n', '<leader>fhx', function()
+    vim.keymap.set('n', '<leader>hc', function()
       for index = #mark.items, 1, -1 do
         table.remove(mark.items, index)
       end

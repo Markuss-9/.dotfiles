@@ -31,3 +31,8 @@ function ToggleFullscreen()
   end
 end
 vim.keymap.set('n', '<leader>ff', ToggleFullscreen, { noremap = true, silent = true })
+
+-- Map Oil to <leader>e
+vim.keymap.set("n", "<leader>e", function()
+	require("oil").toggle_float()
+end, { desc = "Toggle Oil file explorer" })
