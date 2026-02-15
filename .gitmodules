@@ -1,7 +1,3 @@
-[submodule "nvim/.config/nvim"]
-	path = nvim/.config/nvim
-	url = git@github.com:Markuss-9/kickstart.nvim.git
-	branch = master
 [submodule "tmux/.local/share/tmux-sessionizer"]
 	path = tmux/.local/share/tmux-sessionizer
 	url = git@github.com:Markuss-9/tmux-sessionizer.git
