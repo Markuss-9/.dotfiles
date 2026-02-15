@@ -31,4 +31,3 @@ function ToggleFullscreen()
   end
 end
 vim.keymap.set('n', '<leader>ff', ToggleFullscreen, { noremap = true, silent = true })
-
