@@ -16,6 +16,7 @@ return {
       opts = {},
     },
     'folke/lazydev.nvim',
+    'kristijanhusak/vim-dadbod-completion',
   },
   opts = {
     keymap = {
@@ -31,6 +32,10 @@ return {
       default = { 'lsp', 'path', 'snippets', 'lazydev' },
       providers = {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+        dadbod_completion = { module = 'vim_dadbod_completion.blink' },
+      },
+      per_filetype = {
+        sql = { 'dadbod_completion', 'buffer' },
       },
     },
     snippets = { preset = 'luasnip' },
@@ -38,4 +43,6 @@ return {
     signature = { enabled = true },
   },
 }
+
+
 

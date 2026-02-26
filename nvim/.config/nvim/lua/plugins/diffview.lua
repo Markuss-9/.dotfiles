@@ -7,6 +7,32 @@ return {
       { '<leader>gc', '<cmd>DiffviewClose<cr>', desc = 'Close diff view' },
       { '<leader>gh', '<cmd>DiffviewFileHistory %<cr>', desc = 'File history (current)' },
       { '<leader>gH', '<cmd>DiffviewFileHistory<cr>', desc = 'File history (repo)' },
+      {
+        '<leader>gS',
+        function()
+          local stashes = vim.fn.systemlist { 'git', 'stash', 'list', '--pretty=format:%gd: %s' }
+          if vim.v.shell_error ~= 0 or #stashes == 0 then
+            vim.notify('No stashes found', vim.log.levels.WARN)
+            return
+          end
+
+          vim.ui.select(stashes, { prompt = 'Select a stash to diff' }, function(item)
+            if not item then
+              return
+            end
+
+            local stash = item:match '^(stash@%{%d+%})'
+            if not stash then
+              vim.notify('Failed to parse stash ref', vim.log.levels.ERROR)
+              return
+            end
+
+            -- Open the stash in Diffview exactly
+            vim.cmd('DiffviewOpen ' .. stash)
+          end)
+        end,
+        desc = 'Diff view (stash pick)',
+      },
     },
     config = function()
       local actions = require 'diffview.actions'
