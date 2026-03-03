@@ -36,3 +36,5 @@ vim.keymap.set('n', '<leader>ff', ToggleFullscreen, { noremap = true, silent = t
 vim.keymap.set("n", "<leader>e", function()
 	require("oil").toggle_float()
 end, { desc = "Toggle Oil file explorer" })
+
+vim.keymap.set('n', '<leader>gr', function() vim.cmd('checktime') end, { desc = 'Reload file from disk' })
