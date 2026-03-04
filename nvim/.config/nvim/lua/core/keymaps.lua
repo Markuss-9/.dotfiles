@@ -13,8 +13,8 @@ end, { desc = 'Open diagnostic float', noremap = true, silent = true })
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = 'Quit' })
 vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = 'Write (save)' })
-vim.keymap.set('n', '<S-h>', '<cmd>bprevious<CR>', { desc = 'Go to the previous buffer' })
-vim.keymap.set('n', '<S-l>', '<cmd>bnext<CR>', { desc = 'Go to the next buffer' })
+vim.keymap.set('n', '<S-h>', '<C-o>', { desc = 'Go back in jump list' })
+vim.keymap.set('n', '<S-l>', '<C-i>', { desc = 'Go forward in jump list' })
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
@@ -33,8 +33,11 @@ end
 vim.keymap.set('n', '<leader>ff', ToggleFullscreen, { noremap = true, silent = true })
 
 -- Map Oil to <leader>e
-vim.keymap.set("n", "<leader>e", function()
-	require("oil").toggle_float()
-end, { desc = "Toggle Oil file explorer" })
+vim.keymap.set('n', '<leader>e', function()
+  require('oil').toggle_float()
+end, { desc = 'Toggle Oil file explorer' })
 
-vim.keymap.set('n', '<leader>gr', function() vim.cmd('checktime') end, { desc = 'Reload file from disk' })
+vim.keymap.set('n', '<leader>gr', function()
+  vim.cmd 'checktime'
+end, { desc = 'Reload file from disk' })
+

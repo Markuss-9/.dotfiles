@@ -26,4 +26,4 @@ vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
 vim.o.confirm = true
-
+vim.opt.shadafile = vim.fn.stdpath 'data' .. '/shada/' .. vim.loop.cwd():gsub('/', '_') .. '.shada'
