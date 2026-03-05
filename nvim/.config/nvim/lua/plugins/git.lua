@@ -93,6 +93,10 @@ return {
           end, opts)
 
           vim.keymap.set('n', '<leader>t', ':Git push -u origin ', opts)
+
+          vim.keymap.set('n', 'q', function()
+            vim.cmd 'quit'
+          end, opts)
         end,
       })
 
