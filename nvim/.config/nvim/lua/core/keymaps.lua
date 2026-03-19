@@ -12,6 +12,15 @@ vim.keymap.set('n', ']p', function()
 end, { desc = 'Open diagnostic float', noremap = true, silent = true })
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = 'Quit' })
+vim.keymap.set('n', '<leader>cq', function()
+  for _, win in ipairs(vim.fn.getwininfo()) do
+    if win.quickfix == 1 and win.loclist == 0 then
+      vim.cmd 'cclose'
+      return
+    end
+  end
+  vim.cmd 'copen'
+end, { desc = 'Toggle quickfix list' })
 vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = 'Write (save)' })
 vim.keymap.set('n', '<S-h>', '<C-o>', { desc = 'Go back in jump list' })
 vim.keymap.set('n', '<S-l>', '<C-i>', { desc = 'Go forward in jump list' })
@@ -34,10 +43,35 @@ vim.keymap.set('n', '<leader>ff', ToggleFullscreen, { noremap = true, silent = t
 
 -- Map Oil to <leader>e
 vim.keymap.set('n', '<leader>e', function()
-  require('oil').toggle_float()
+  local ok_harpoon, harpoon = pcall(require, 'harpoon')
+  if ok_harpoon and harpoon.ui and harpoon.ui.win_id and vim.api.nvim_win_is_valid(harpoon.ui.win_id) then
+    harpoon.ui:toggle_quick_menu(harpoon:list())
+  end
+
+  local ok, err = pcall(function()
+    require('oil').toggle_float()
+  end)
+
+  if ok then
+    return
+  end
+
+  if type(err) == 'string' and err:find('Window was closed immediately', 1, true) then
+    vim.schedule(function()
+      local ok_retry = pcall(function()
+        require('oil').open_float()
+      end)
+
+      if not ok_retry then
+        require('oil').open()
+      end
+    end)
+    return
+  end
+
+  vim.notify(err, vim.log.levels.ERROR)
 end, { desc = 'Toggle Oil file explorer' })
 
 vim.keymap.set('n', '<leader>gr', function()
   vim.cmd 'checktime'
 end, { desc = 'Reload file from disk' })
-
