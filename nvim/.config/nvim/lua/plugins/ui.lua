@@ -50,6 +50,7 @@ return {
         },
       },
       spec = {
+        { '<leader>g', group = '[G]it' },
         { '<leader>s', group = '[S]earch' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
@@ -72,37 +73,6 @@ return {
       statusline.section_location = function()
         return '%2l:%-2v'
       end
-    end,
-  },
-  {
-    'nvim-neo-tree/neo-tree.nvim',
-    branch = 'v3.x',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'nvim-tree/nvim-web-devicons',
-      'MunifTanjim/nui.nvim',
-    },
-    lazy = false,
-    opts = {
-      window = {
-        position = 'float',
-        mappings = {
-          ['o'] = 'open',
-        },
-      },
-      filesystem = {
-        filtered_items = {
-          visible = true,
-          hide_dotfiles = false,
-          hide_gitignored = false,
-        },
-      },
-    },
-    config = function(_, opts)
-      require('neo-tree').setup(opts)
-      vim.keymap.set('n', '<leader>o', function()
-        vim.cmd 'Neotree reveal'
-      end)
     end,
   },
 }

@@ -56,5 +56,16 @@ return {
     vim.keymap.set('n', '<leader>sn', function()
       builtin.find_files { cwd = vim.fn.stdpath 'config' }
     end, { desc = '[S]earch [N]eovim files' })
+    -- vim.keymap.set('n', '<leader>sM', builtin.man_pages, { desc = '[S]earch [M]an pages' })
+    vim.keymap.set('n', '<leader>sc', builtin.colorscheme, { desc = '[S]earch [C]olorscheme' })
+    -- vim.keymap.set('n', '<leader>sR', builtin.registers, { desc = '[S]earch [R]egisters' })
+    vim.keymap.set('n', '<leader>sC', builtin.commands, { desc = '[S]earch [C]ommands' })
+    -- vim.keymap.set('n', '<leader>sm', builtin.marks, { desc = '[S]earch [M]arks' })
+    -- vim.keymap.set('n', '<leader>sj', builtin.jumplist, { desc = '[S]earch [J]umplist' })
+
+    -- Git pickers
+    vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = '[G]it [S]tatus' })
+    vim.keymap.set('n', '<leader>gl', builtin.git_commits, { desc = '[G]it [L]og' })
+    vim.keymap.set('n', '<leader>gL', builtin.git_bcommits, { desc = '[G]it buffer [L]og' })
   end,
 }
