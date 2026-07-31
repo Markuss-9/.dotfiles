@@ -104,16 +104,16 @@ return {
     local utils = require 'utils'
 
     local servers = {
-      ts_ls = {},
+      vtsls = {},
       cssls = { validate = true },
       tailwindcss = {
         filetypes = { 'typescriptreact', 'javascriptreact', 'html' },
       },
-      eslint = {
-        settings = {
-          workingDirectory = { mode = 'auto' },
-        },
-      },
+      -- eslint = {
+      --   settings = {
+      --     workingDirectory = { mode = 'auto' },
+      --   },
+      -- },
       lua_ls = {
         settings = {
           Lua = {
