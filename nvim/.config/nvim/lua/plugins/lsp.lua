@@ -14,6 +14,7 @@ return {
     vim.keymap.del('n', 'grn')
     vim.keymap.del('n', 'grr')
     vim.keymap.del('n', 'grt')
+    vim.keymap.del('n', 'grx')
 
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
