@@ -41,13 +41,13 @@ return {
         enhanced_diff_hl = true,
         show_help_hints = false,
         view = {
-          default = { winbar_info = false },
+          default = { layout = 'diff2_horizontal', winbar_info = false },
           merge_tool = {
             layout = 'diff3_mixed',
             disable_diagnostics = true,
             winbar_info = true,
           },
-          file_history = { winbar_info = false },
+          file_history = { layout = 'diff2_horizontal', winbar_info = false },
         },
         file_panel = {
           listing_style = 'tree',

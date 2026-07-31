@@ -35,11 +35,7 @@ return {
         map('gt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
 
         local function client_supports_method(client, method, bufnr)
-          if vim.fn.has 'nvim-0.11' == 1 then
-            return client:supports_method(method, bufnr)
-          else
-            return client.supports_method(method, { bufnr = bufnr })
-          end
+          return client.supports_method(method, { bufnr = bufnr })
         end
 
         local client = vim.lsp.get_client_by_id(event.data.client_id)
