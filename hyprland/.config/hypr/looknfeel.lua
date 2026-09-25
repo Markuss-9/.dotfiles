@@ -1,0 +1,69 @@
+-- Change the default Omarchy look'n'feel.
+
+-- https://wiki.hypr.land/Configuring/Basics/Variables/#general
+hl.config({
+	general = {
+		-- Gradient on the active window's border.
+		col = {
+			active_border = {
+				colors = { "rgba(10,00,158,1)", "rgba(00,89,232,1)" },
+				angle = 45,
+			},
+		},
+
+		-- Drag windows around from their border.
+		resize_on_border = true,
+	},
+})
+
+-- https://wiki.hypr.land/Configuring/Basics/Variables/#general
+-- hl.config({
+--   general = {
+--     -- No gaps between windows or borders.
+--     gaps_in = 0,
+--     gaps_out = 0,
+--     border_size = 0,
+--
+--     -- Use master layout instead of dwindle.
+--     layout = "master",
+--
+--     -- Change to niri-like side-scrolling layout.
+--     layout = "scrolling",
+--   },
+-- })
+
+-- https://wiki.hypr.land/Configuring/Basics/Variables/#decoration
+-- hl.config({
+--   decoration = {
+--     -- Use round window corners.
+--     rounding = 8,
+--
+--     -- Dim unfocused windows (0.0 = no dim, 1.0 = fully dimmed).
+--     dim_inactive = true,
+--     dim_strength = 0.15,
+--   },
+-- })
+
+-- https://wiki.hypr.land/Configuring/Basics/Variables/#animations
+-- hl.config({
+--   animations = {
+--     -- Disable all animations.
+--     enabled = false,
+--   },
+-- })
+
+-- https://wiki.hypr.land/Configuring/Basics/Variables/#layout
+-- hl.config({
+--   layout = {
+--     -- Avoid overly wide single-window layouts on wide screens.
+--     single_window_aspect_ratio = { 1, 1 },
+--   },
+-- })
+
+-- https://wiki.hypr.land/Configuring/Layouts/Scrolling-Layout/
+-- hl.config({
+--   scrolling = {
+--     -- See only one column per screen instead of two.
+--     column_width = 0.97,
+--   },
+-- })
