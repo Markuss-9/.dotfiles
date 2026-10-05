@@ -3,7 +3,13 @@ return {
   {
     'numToStr/Comment.nvim',
     config = function()
-      require('Comment').setup()
+      require('Comment').setup {
+        pre_hook = function()
+          if vim.bo.filetype == 'env' then
+            return '#%s'
+          end
+        end,
+      }
 
       local commentApi = require 'Comment.api'
 
